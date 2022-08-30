@@ -1,7 +1,7 @@
 import { challengeData } from "../data/challengeData.js";
 import TreeNode from "./TreeNode.jsx";
 
-const TreeChildren = ({ data }) => {
+const TreeNodeChildren = ({ data }) => {
   if (!data) return null;
   return (
     <div className="tree-children">
@@ -11,7 +11,7 @@ const TreeChildren = ({ data }) => {
           return (
             <li>
               <TreeNode data={children} />
-              {children.children.length > 0 && <TreeChildren data={children.children} />}
+              {children.children.length > 0 && <TreeNodeChildren data={children.children} />}
             </li>
           );
         })}
@@ -20,4 +20,4 @@ const TreeChildren = ({ data }) => {
   );
 };
 
-export default TreeChildren;
+export default TreeNodeChildren;
