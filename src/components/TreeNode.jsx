@@ -1,7 +1,7 @@
-const TreeNode = () => {
+const TreeNode = ({ data }) => {
   return (
     <div className="tree-node">
-      <p>Tree Node</p>
+      <p>{data.label}</p>
     </div>
   );
 };
