@@ -1,6 +1,6 @@
-const TreeNode = ({ data }) => {
+const TreeNode = ({ data, id, nodeRef }) => {
   return (
-    <div className="tree-node">
+    <div className="tree-node" id={id} ref={nodeRef}>
       <p>{data.label}</p>
     </div>
   );

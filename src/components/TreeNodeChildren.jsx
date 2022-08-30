@@ -1,19 +1,14 @@
 import { challengeData } from "../data/challengeData.js";
-import TreeNode from "./TreeNode.jsx";
+import RecursiveTree from "./RecursiveTree.jsx";
 
-const TreeNodeChildren = ({ data }) => {
+const TreeNodeChildren = ({ data, childrenRefs }) => {
   if (!data) return null;
   return (
     <div className="tree-children">
       <ul>
-        {data.map(childrenId => {
+        {data.map((childrenId, i) => {
           const children = challengeData[childrenId];
-          return (
-            <li>
-              <TreeNode data={children} />
-              {children.children.length > 0 && <TreeNodeChildren data={children.children} />}
-            </li>
-          );
+          return <RecursiveTree child={children} childRef={childrenRefs.current[i]} key={`${children.label}-${i}`} />;
         })}
       </ul>
     </div>
