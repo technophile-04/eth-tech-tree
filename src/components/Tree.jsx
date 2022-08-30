@@ -3,7 +3,7 @@ const Tree = () => {
     <div className="tree">
       <p>Tree</p>
     </div>
-  )
-}
+  );
+};
 
-export default Tree
+export default Tree;
