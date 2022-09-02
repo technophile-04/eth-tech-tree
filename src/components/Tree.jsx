@@ -7,8 +7,8 @@ import Xarrow from "react-xarrows";
 const Tree = () => {
   const root = Object.values(challengeData)[0];
 
+  /* Refs for react-xarrows */
   const childrenRefs = useRef([]);
-
   const rootRef = useRef();
 
   // Creating refs for direct child nodes(for react-xarrows)
