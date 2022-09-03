@@ -17,11 +17,11 @@ const Tree = ({ theme }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <TreeNode data={root} id={root.label} nodeRef={rootRef} />
+      <TreeNode data={root} id={root.label} ref={rootRef} />
       <TreeNodeChildren data={root.children} childrenRefs={childrenRefs} />
       {/* TODO : Need to make sure `key` is unique */}
       {root.children.map((_, i) => (
-        <Xarrow start={root.label} end={childrenRefs.current[i]} key={`${root.label}-${i}`} />
+        <Xarrow start={rootRef} end={childrenRefs.current[i]} key={`${root.label}-${i}`} />
       ))}
     </ThemeProvider>
   );
