@@ -1,17 +1,30 @@
+import styled from "styled-components";
 import { challengeData } from "../data/challengeData.js";
 import RecursiveTree from "./RecursiveTree.jsx";
+
+const ChildrenWrapper = styled.div`
+  margin-top: 35px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 const TreeNodeChildren = ({ data, childrenRefs }) => {
   if (!data) return null;
   return (
-    <div className="tree-children">
+    <ChildrenWrapper>
       <ul>
         {data.map((childrenId, i) => {
           const children = challengeData[childrenId];
           return <RecursiveTree child={children} childRef={childrenRefs.current[i]} key={`${children.label}-${i}`} />;
         })}
       </ul>
-    </div>
+    </ChildrenWrapper>
   );
 };
 

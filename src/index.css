@@ -21,22 +21,3 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
-.tree-node {
-  border: 1px solid;
-  padding: 20px;
-  max-width: 200px;
-  margin: 0 auto;
-}
-
-.tree-children {
-  margin-top: 35px;
-}
-
-.tree-children ul {
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-}
