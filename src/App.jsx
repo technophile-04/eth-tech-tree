@@ -19,7 +19,8 @@ const App = () => {
     <Container>
       <GlobalStyle />
       <Title>ETH Tech tree</Title>
-      <Tree />
+      <Tree theme={{ direction: "horizontal" }} />
+      {/* <Tree theme={{ direction: "vertical" }} /> */}
     </Container>
   );
 };

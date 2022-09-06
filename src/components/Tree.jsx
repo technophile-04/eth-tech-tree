@@ -3,7 +3,14 @@ import { challengeData } from "../data/challengeData.js";
 import TreeNode from "./TreeNode.jsx";
 import TreeNodeChildren from "./TreeNodeChildren.jsx";
 import Xarrow from "react-xarrows";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+
+const TreeWrapper = styled.div`
+  display: flex;
+  flex-direction: ${props => (props.theme.direction === "vertical" ? "column" : "row")};
+  justify-content: ${props => props.theme.direction === "horizontal" && "center"};
+  align-items: ${props => props.theme.direction === "horizontal" && "center"};
+`;
 
 const Tree = ({ theme }) => {
   const root = Object.values(challengeData)[0];
@@ -17,12 +24,14 @@ const Tree = ({ theme }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <TreeNode data={root} id={root.label} ref={rootRef} />
-      <TreeNodeChildren data={root.children} childrenRefs={childrenRefs} />
-      {/* TODO : Need to make sure `key` is unique */}
-      {root.children.map((_, i) => (
-        <Xarrow start={rootRef} end={childrenRefs.current[i]} key={`${root.label}-${i}`} />
-      ))}
+      <TreeWrapper>
+        <TreeNode data={root} id={root.label} ref={rootRef} />
+        <TreeNodeChildren data={root.children} childrenRefs={childrenRefs} />
+        {/* TODO : Need to make sure `key` is unique */}
+        {root.children.map((_, i) => (
+          <Xarrow start={rootRef} end={childrenRefs.current[i]} key={`${root.label}-${i}`} />
+        ))}
+      </TreeWrapper>
     </ThemeProvider>
   );
 };

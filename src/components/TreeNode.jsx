@@ -6,8 +6,7 @@ const StyledNode = styled.div`
   border: 1px solid;
   padding: 20px;
   max-width: 200px;
-  margin: 0 auto;
-  margin-bottom: 5rem;
+  margin: ${props => (props.theme.direction === "vertical" ? "0 auto 5rem auto" : "0 5rem 0 0")};
 `;
 
 const TreeNode = React.forwardRef(({ data, id }, ref) => {

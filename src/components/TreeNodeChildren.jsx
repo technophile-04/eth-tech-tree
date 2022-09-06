@@ -6,6 +6,9 @@ const ChildrenWrapper = styled.div`
   ul {
     list-style: none;
     display: flex;
+    flex-direction: ${props => (props.theme.direction === "vertical" ? "row" : "column")};
+    justify-content: ${props => props.theme.direction === "horizontal" && "center"};
+    align-items: ${props => props.theme.direction === "horizontal" && "baseline"};
     gap: 2rem;
     margin: 0;
     padding: 0;
