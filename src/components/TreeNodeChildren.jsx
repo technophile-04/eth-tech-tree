@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { challengeData } from "../data/challengeData.js";
 import RecursiveTree from "./RecursiveTree.jsx";
 
 const ChildrenWrapper = styled.div`
@@ -15,14 +14,21 @@ const ChildrenWrapper = styled.div`
   }
 `;
 
-const TreeNodeChildren = ({ data, childrenRefs }) => {
+const TreeNodeChildren = ({ data, childrenRefs, challengeData }) => {
   if (!data) return null;
   return (
     <ChildrenWrapper>
       <ul>
         {data.map((childrenId, i) => {
           const children = challengeData[childrenId];
-          return <RecursiveTree child={children} ref={childrenRefs.current[i]} key={`${children.label}-${i}`} />;
+          return (
+            <RecursiveTree
+              child={children}
+              ref={childrenRefs.current[i]}
+              key={`${children.label}-${i}`}
+              challengeData={challengeData}
+            />
+          );
         })}
       </ul>
     </ChildrenWrapper>

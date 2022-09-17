@@ -1,5 +1,4 @@
 import { createRef, useRef, useState } from "react";
-import { challengeData } from "../data/challengeData.js";
 import TreeNode from "./TreeNode.jsx";
 import TreeNodeChildren from "./TreeNodeChildren.jsx";
 import Xarrow from "react-xarrows";
@@ -12,7 +11,7 @@ const TreeWrapper = styled.div`
   align-items: ${props => props.theme.direction === "horizontal" && "center"};
 `;
 
-const Tree = ({ theme }) => {
+const Tree = ({ theme, challengeData }) => {
   const root = Object.values(challengeData)[0];
 
   const [showChildren, setShowChildren] = useState(false);
@@ -28,7 +27,7 @@ const Tree = ({ theme }) => {
     <ThemeProvider theme={theme}>
       <TreeWrapper>
         <TreeNode data={root} id={root.label} ref={rootRef} setShowChildren={setShowChildren} />
-        <TreeNodeChildren data={root.children} childrenRefs={childrenRefs} />
+        <TreeNodeChildren data={root.children} childrenRefs={childrenRefs} challengeData={challengeData} />
         {/* TODO : Need to make sure `key` is unique Xarrow component */}
         {root.children.map((_, i) => (
           <Xarrow

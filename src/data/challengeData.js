@@ -70,3 +70,33 @@ export const challengeData = {
     children: [],
   },
 };
+
+export const challengeData1 = {
+  register: {
+    label: "Register on SRE",
+    description: "👩‍🏫 Learn how to build on Ethereum; the superpowers and the gotchas.",
+    children: ["simple-nft-example"],
+  },
+  "simple-nft-example": {
+    label: "🚩 Challenge 0: 🎟 Simple NFT Example",
+    description:
+      "🎫 Create a simple NFT to learn basics of 🏗 scaffold-eth. You'll use 👷‍♀️ HardHat to compile and deploy smart contracts. Then, you'll use a template React app full of important Ethereum components and hooks. Finally, you'll deploy an NFT to a public network to share with friends! 🚀",
+    previewImage: "assets/0.png",
+    children: ["decentralized-staking"],
+  },
+  "decentralized-staking": {
+    label: "🚩 Challenge 1: 🥩 Decentralized Staking App ",
+    description:
+      "🦸 A superpower of Ethereum is allowing you, the builder, to create a simple set of rules that an adversarial group of players can use to work together. In this challenge, you create a decentralized application where users can coordinate a group funding effort. The users only have to trust the code.",
+    previewImage: "assets/1.png",
+    children: ["token-vendor"],
+  },
+  "token-vendor": {
+    branchName: "challenge-2-token-vendor",
+    label: "🚩 Challenge 2: 🏵 Token Vendor",
+    description:
+      '🤖 Smart contracts are kind of like "always on" vending machines that anyone can access. Let\'s make a decentralized, digital currency (an ERC20 token). Then, let\'s build an unstoppable vending machine that will buy and sell the currency. We\'ll learn about the "approve" pattern for ERC20s and how contract to contract interactions work.',
+    previewImage: "assets/2.png",
+    children: [],
+  },
+};

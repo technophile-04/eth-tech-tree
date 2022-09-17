@@ -11,7 +11,7 @@ const StyledList = styled.li`
   align-items: ${props => props.theme.direction === "horizontal" && "center"};
 `;
 
-const RecursiveTree = React.forwardRef(({ child }, ref) => {
+const RecursiveTree = React.forwardRef(({ child, challengeData }, ref) => {
   const childrenRefs = useRef([]);
   const newParentRef = useRef();
 
@@ -24,7 +24,9 @@ const RecursiveTree = React.forwardRef(({ child }, ref) => {
   return (
     <StyledList ref={ref}>
       <TreeNode data={child} ref={newParentRef} id={child.label} setShowChildren={setShowChildren} />
-      {child.children.length > 0 && <TreeNodeChildren data={child.children} childrenRefs={childrenRefs} />}
+      {child.children.length > 0 && (
+        <TreeNodeChildren data={child.children} childrenRefs={childrenRefs} challengeData={challengeData} />
+      )}
       {child.children.map((childrenOfChildName, i) => (
         <Xarrow
           start={newParentRef}

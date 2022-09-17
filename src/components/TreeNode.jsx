@@ -20,7 +20,7 @@ const TreeNode = React.forwardRef(({ data, id, setShowChildren }, ref) => {
   return (
     <StyledNode id={id} ref={ref} onClick={() => showModal(data)}>
       <p>{data.label}</p>
-      {/* This would now be there and handled by current stage of builder */}
+      {/* This would not be there and handled by current stage of builder */}
       <button onClick={unlock}>unlock children</button>
     </StyledNode>
   );
